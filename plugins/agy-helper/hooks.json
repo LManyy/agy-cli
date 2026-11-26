@@ -1,0 +1,11 @@
+{
+  "agy-helper-cli": {
+    "PreInvocation": [
+      {
+        "type": "command",
+        "command": "python3 -B ./scripts/agy_helper_hook.py",
+        "timeout": 10
+      }
+    ]
+  }
+}

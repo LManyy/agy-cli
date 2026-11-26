@@ -1,0 +1,5 @@
+{
+  "name": "agy-helper",
+  "version": "1.0.0",
+  "description": "Antigravity CLI helper plugin providing $proj command and project-path consistency guard."
+}

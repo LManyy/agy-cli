@@ -1,0 +1,6 @@
+{
+  "navigation.down": ["down", "ctrl+n"],
+  "navigation.up": ["up", "ctrl+p"],
+  "item.rename": ["alt+r", "f2"],
+  "item.delete": ["alt+d", "f4"]
+}

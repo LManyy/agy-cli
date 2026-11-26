@@ -1,0 +1,23 @@
+# ==============================================================================
+# Antigravity CLI (agy) Shell 入口
+# 核心逻辑在 ~/bin/agy_helper.py，此处仅负责定位真实二进制并转发参数
+# ==============================================================================
+
+agy() {
+  local agy_bin
+  agy_bin="$(type -P agy 2>/dev/null || true)"
+  if [[ -z "${agy_bin}" ]]; then
+    echo "错误: 未在 PATH 中找到 agy 可执行文件。" >&2
+    return 127
+  fi
+
+  local helper="${HOME}/bin/agy_helper.py"
+  if [[ -f "${helper}" ]] && command -v python3 >/dev/null 2>&1; then
+    AGY_BIN="${agy_bin}" PYTHONDONTWRITEBYTECODE=1 python3 "${helper}" "$@"
+    return $?
+  fi
+
+  AGY_LAUNCH_CWD="$PWD" command agy "$@"
+}
+
+export -f agy
